@@ -1,0 +1,1551 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/default/protos/SumoInterface.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/road/protos/StraightRoadSegment.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/road/protos/RoadLine.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/TrafficCone.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/HighwayPole.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/HighwaySign.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/geometries/protos/Extrusion.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/trees/protos/Forest.proto"
+IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/vehicles/protos/bmw/BmwX5Simple.proto"
+IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/vehicles/protos/citroen/CitroenCZeroSimple.proto"
+IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/vehicles/protos/toyota/ToyotaPriusSimple.proto"
+IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/vehicles/protos/lincoln/LincolnMKZSimple.proto"
+IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/vehicles/protos/range_rover/RangeRoverSportSVRSimple.proto"
+IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/vehicles/protos/tesla/TeslaModel3Simple.proto"
+IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/vehicles/protos/mercedes_benz/MercedesBenzSprinterSimple.proto"
+IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/vehicles/protos/generic/BusSimple.proto"
+IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/vehicles/protos/generic/TruckSimple.proto"
+IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/vehicles/protos/generic/TruckTrailerSimple.proto"
+IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/vehicles/protos/generic/TruckTankSimple.proto"
+IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/vehicles/protos/generic/ScooterSimple.proto"
+IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/vehicles/protos/generic/ScooterDriver.proto"
+IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/vehicles/protos/generic/MotorbikeSimple.proto"
+IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/vehicles/protos/generic/MotorbikeDriver.proto"
+
+WorldInfo {
+  info [
+    "Autonomous Vehicle Simulation"
+    "The main vehicle uses distance-sensors and a front radar in order to overtake the other vehicles controlled by SUMO."
+  ]
+  title "Highway overtake"
+  ERP 0.6
+  basicTimeStep 10
+  lineScale 1
+  contactProperties [
+    ContactProperties {
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-05
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+    ContactProperties {
+      material2 "CitroenCZeroWheels"
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-05
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+    ContactProperties {
+      material2 "ToyotaPriusWheels"
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-05
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+    ContactProperties {
+      material2 "LincolnMKZWheels"
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-05
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+    ContactProperties {
+      material2 "RangeRoverSportSVRWheels"
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-05
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+    ContactProperties {
+      material2 "TruckWheels"
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-05
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+  ]
+}
+Viewpoint {
+  orientation -0.5188503563204037 -0.5455650976773957 0.6581436256186365 4.239607262572504
+  position -95.17633540040123 17.192789841899707 63.79456156855533
+  near 1
+  followSmoothness 0
+  lensFlare LensFlare {
+  }
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+Fog {
+  color 0.93 0.96 1
+  visibilityRange 500
+}
+DEF FLOOR Solid {
+  boundingObject Plane {
+  }
+}
+SumoInterface {
+  gui FALSE
+  radius 250
+  laneChangeDelay 4
+}
+StraightRoadSegment {
+  translation 0 8.75 0.01
+  rotation 0 0 1 3.1415926535
+  id "0"
+  width 15
+  numberOfLanes 4
+  numberOfForwardLanes 4
+  lines [
+    RoadLine {
+      type "continuous"
+      width 0.25
+    }
+  ]
+  rightBorder FALSE
+  leftBorder FALSE
+  rightBarrier TRUE
+  leftBarrier TRUE
+  length 5000
+}
+StraightRoadSegment {
+  translation -5000 -8.75 0.01
+  name "road(1)"
+  id "1"
+  width 15
+  numberOfLanes 4
+  numberOfForwardLanes 4
+  lines [
+    RoadLine {
+      type "continuous"
+      width 0.25
+    }
+  ]
+  rightBorder FALSE
+  leftBorder FALSE
+  rightBarrier TRUE
+  leftBarrier TRUE
+  length 5000
+}
+DEF WEBOTS_VEHICLE1 RangeRoverSportSVRSimple {
+  translation -130.46564 10.421444 0.4
+  rotation 0 0 1 2.87979
+  name "vehicle(1)"
+}
+TrafficCone {
+  translation -118.18033 12.182304 0
+  rotation 0 0 -1 4.9741884
+}
+TrafficCone {
+  translation -127.19847 9.4738171 0
+  name "traffic cone(1)"
+}
+TrafficCone {
+  translation -122.40328 10.584217 0
+  name "traffic cone(2)"
+}
+DEF WEBOTS_VEHICLE2 Solid {
+  translation -114.07405 10.36436 0
+  name "solid(1)"
+}
+HighwayPole {
+  translation -215 16 0
+  stand 2
+  height 7
+  length 31
+  thickness 0.35
+  curveRadius 0.5
+  rightHorizontalSigns [
+    HighwaySign {
+      translation 0 -5.35 0
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/textures/highway_sign_bayonne.jpg"
+      ]
+    }
+  ]
+  rightVerticalSigns [
+    HighwaySign {
+      translation 0 0 0.66
+      name "highway sign(1)"
+      height 1.7
+      length 3.5
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/textures/highway_sign_sebastian.jpg"
+      ]
+    }
+  ]
+  leftHorizontalSigns [
+    HighwaySign {
+      translation 0 17.5 0
+      name "highway sign(2)"
+      height 3.5
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/textures/highway_sign_bayonne.jpg"
+      ]
+    }
+  ]
+  leftVerticalSigns [
+    HighwaySign {
+      translation 0 0 0.66
+      name "highway sign(3)"
+      height 1.7
+      length 3.5
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/textures/highway_sign_sebastian.jpg"
+      ]
+    }
+  ]
+}
+HighwayPole {
+  translation -600 16 0
+  name "highway pole(1)"
+  stand 2
+  height 7
+  length 31
+  thickness 0.35
+  curveRadius 0.5
+  rightHorizontalSigns [
+    HighwaySign {
+      translation 0 -5.35 0
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/textures/highway_sign_bayonne.jpg"
+      ]
+    }
+  ]
+  rightVerticalSigns [
+    HighwaySign {
+      translation 0 0 0.66
+      name "highway sign(1)"
+      height 1.7
+      length 3.5
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/textures/highway_sign_sebastian.jpg"
+      ]
+    }
+  ]
+  leftHorizontalSigns [
+    HighwaySign {
+      translation 0 17.5 0
+      name "highway sign(2)"
+      height 3.5
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/textures/highway_sign_bayonne.jpg"
+      ]
+    }
+  ]
+  leftVerticalSigns [
+    HighwaySign {
+      translation 0 0 0.66
+      name "highway sign(3)"
+      height 1.7
+      length 3.5
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/textures/highway_sign_sebastian.jpg"
+      ]
+    }
+  ]
+}
+HighwayPole {
+  translation -1000 16 0
+  name "highway pole(2)"
+  stand 2
+  height 7
+  length 31
+  thickness 0.35
+  curveRadius 0.5
+  rightHorizontalSigns [
+    HighwaySign {
+      translation 0 -5.35 0
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/textures/highway_sign_bayonne.jpg"
+      ]
+    }
+  ]
+  rightVerticalSigns [
+    HighwaySign {
+      translation 0 0 0.66
+      name "highway sign(1)"
+      height 1.7
+      length 3.5
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/textures/highway_sign_sebastian.jpg"
+      ]
+    }
+  ]
+  leftHorizontalSigns [
+    HighwaySign {
+      translation 0 17.5 0
+      name "highway sign(2)"
+      height 3.5
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/textures/highway_sign_bayonne.jpg"
+      ]
+    }
+  ]
+  leftVerticalSigns [
+    HighwaySign {
+      translation 0 0 0.66
+      name "highway sign(3)"
+      height 1.7
+      length 3.5
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/textures/highway_sign_sebastian.jpg"
+      ]
+    }
+  ]
+}
+HighwayPole {
+  translation -1400 16 0
+  name "highway pole(3)"
+  stand 2
+  height 7
+  length 31
+  thickness 0.35
+  curveRadius 0.5
+  rightHorizontalSigns [
+    HighwaySign {
+      translation 0 -5.35 0
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/textures/highway_sign_bayonne.jpg"
+      ]
+    }
+  ]
+  rightVerticalSigns [
+    HighwaySign {
+      translation 0 0 0.66
+      name "highway sign(1)"
+      height 1.7
+      length 3.5
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/textures/highway_sign_sebastian.jpg"
+      ]
+    }
+  ]
+  leftHorizontalSigns [
+    HighwaySign {
+      translation 0 17.5 0
+      name "highway sign(2)"
+      height 3.5
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/textures/highway_sign_bayonne.jpg"
+      ]
+    }
+  ]
+  leftVerticalSigns [
+    HighwaySign {
+      translation 0 0 0.66
+      name "highway sign(3)"
+      height 1.7
+      length 3.5
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/textures/highway_sign_sebastian.jpg"
+      ]
+    }
+  ]
+}
+HighwayPole {
+  translation -1800 16 0
+  name "highway pole(4)"
+  stand 2
+  height 7
+  length 31
+  thickness 0.35
+  curveRadius 0.5
+  rightHorizontalSigns [
+    HighwaySign {
+      translation 0 -5.35 0
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/textures/highway_sign_bayonne.jpg"
+      ]
+    }
+  ]
+  rightVerticalSigns [
+    HighwaySign {
+      translation 0 0 0.66
+      name "highway sign(1)"
+      height 1.7
+      length 3.5
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/textures/highway_sign_sebastian.jpg"
+      ]
+    }
+  ]
+  leftHorizontalSigns [
+    HighwaySign {
+      translation 0 17.5 0
+      name "highway sign(2)"
+      height 3.5
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/textures/highway_sign_bayonne.jpg"
+      ]
+    }
+  ]
+  leftVerticalSigns [
+    HighwaySign {
+      translation 0 0 0.66
+      name "highway sign(3)"
+      height 1.7
+      length 3.5
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/textures/highway_sign_sebastian.jpg"
+      ]
+    }
+  ]
+}
+HighwayPole {
+  translation -2200 16 0
+  name "highway pole(5)"
+  stand 2
+  height 7
+  length 31
+  thickness 0.35
+  curveRadius 0.5
+  rightHorizontalSigns [
+    HighwaySign {
+      translation 0 -5.35 0
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/textures/highway_sign_bayonne.jpg"
+      ]
+    }
+  ]
+  rightVerticalSigns [
+    HighwaySign {
+      translation 0 0 0.66
+      name "highway sign(1)"
+      height 1.7
+      length 3.5
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/textures/highway_sign_sebastian.jpg"
+      ]
+    }
+  ]
+  leftHorizontalSigns [
+    HighwaySign {
+      translation 0 17.5 0
+      name "highway sign(2)"
+      height 3.5
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/textures/highway_sign_bayonne.jpg"
+      ]
+    }
+  ]
+  leftVerticalSigns [
+    HighwaySign {
+      translation 0 0 0.66
+      name "highway sign(3)"
+      height 1.7
+      length 3.5
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/textures/highway_sign_sebastian.jpg"
+      ]
+    }
+  ]
+}
+HighwayPole {
+  translation -2600 16 0
+  name "highway pole(6)"
+  stand 2
+  height 7
+  length 31
+  thickness 0.35
+  curveRadius 0.5
+  rightHorizontalSigns [
+    HighwaySign {
+      translation 0 -5.35 0
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/textures/highway_sign_bayonne.jpg"
+      ]
+    }
+  ]
+  rightVerticalSigns [
+    HighwaySign {
+      translation 0 0 0.66
+      name "highway sign(1)"
+      height 1.7
+      length 3.5
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/textures/highway_sign_sebastian.jpg"
+      ]
+    }
+  ]
+  leftHorizontalSigns [
+    HighwaySign {
+      translation 0 17.5 0
+      name "highway sign(2)"
+      height 3.5
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/textures/highway_sign_bayonne.jpg"
+      ]
+    }
+  ]
+  leftVerticalSigns [
+    HighwaySign {
+      translation 0 0 0.66
+      name "highway sign(3)"
+      height 1.7
+      length 3.5
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/textures/highway_sign_sebastian.jpg"
+      ]
+    }
+  ]
+}
+HighwayPole {
+  translation -3000 16 0
+  name "highway pole(7)"
+  stand 2
+  height 7
+  length 31
+  thickness 0.35
+  curveRadius 0.5
+  rightHorizontalSigns [
+    HighwaySign {
+      translation 0 -5.35 0
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/textures/highway_sign_bayonne.jpg"
+      ]
+    }
+  ]
+  rightVerticalSigns [
+    HighwaySign {
+      translation 0 0 0.66
+      name "highway sign(1)"
+      height 1.7
+      length 3.5
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/textures/highway_sign_sebastian.jpg"
+      ]
+    }
+  ]
+  leftHorizontalSigns [
+    HighwaySign {
+      translation 0 17.5 0
+      name "highway sign(2)"
+      height 3.5
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/textures/highway_sign_bayonne.jpg"
+      ]
+    }
+  ]
+  leftVerticalSigns [
+    HighwaySign {
+      translation 0 0 0.66
+      name "highway sign(3)"
+      height 1.7
+      length 3.5
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/textures/highway_sign_sebastian.jpg"
+      ]
+    }
+  ]
+}
+Solid {
+  rotation -0.577349914474874 -0.5773499786187347 0.5773509144747258 2.0944
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.8 0.8 0.8
+        baseColorMap ImageTexture {
+          url [
+            "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/vehicles/worlds/textures/ground_grass.jpg"
+          ]
+        }
+        roughness 0.5
+        metalness 0
+        textureTransform TextureTransform {
+          scale 1500 43
+        }
+      }
+      geometry Extrusion {
+        crossSection [
+          60 0, 59 0.061558297, 58 0.24471742, 57 0.54496738, 56 0.95491503, 55 1.4644661, 54 2.0610737, 53 2.7300475, 52 3.454915, 51 4.2178277, 50 5, 49 5.7821723, 48 6.545085, 47 7.2699525, 46 7.9389263, 45 8.5355339, 44 9.045085, 43 9.4550326, 42 9.7552826, 41 9.9384417, 40 10, 39 9.9384417, 38 9.7552826, 37 9.4550326, 36 9.045085, 35 8.5355339, 34 7.9389263, 33 7.2699525, 32 6.545085, 31 5.7821723, 30 5, 29 4.2178277, 28 3.454915, 27 2.7300475, 26 2.0610737, 25 1.4644661, 24 0.95491503, 23 0.54496738, 22 0.24471742, 21 0.061558297, 20 0, -20 0, -21 0.061558297, -22 0.24471742, -23 0.54496738, -24 0.95491503, -25 1.4644661, -26 2.0610737, -27 2.7300475, -28 3.454915, -29 4.2178277, -30 5, -31 5.7821723, -32 6.545085, -33 7.2699525, -34 7.9389263, -35 8.5355339, -36 9.045085, -37 9.4550326, -38 9.7552826, -39 9.9384417, -40 10, -41 9.9384417, -42 9.7552826, -43 9.4550326, -44 9.045085, -45 8.5355339, -46 7.9389263, -47 7.2699525, -48 6.545085, -49 5.7821723, -50 5, -51 4.2178277, -52 3.454915, -53 2.7300475, -54 2.0610737, -55 1.4644661, -56 0.95491503, -57 0.54496738, -58 0.24471742, -59 0.061558297, -60 0
+        ]
+        spine [
+          0 0 0
+          0 0 5000
+        ]
+        beginCap FALSE
+        endCap FALSE
+        ccw FALSE
+        creaseAngle 1.1
+      }
+      castShadows FALSE
+    }
+  ]
+  name "solid(2)"
+}
+Forest {
+  rotation 0 0 1 -1.5707953071795862
+  treesFiles [
+    "forest/highway_overtake/1.forest"
+  ]
+  shape []
+  type "cherry tree"
+  minHeight 4
+  maxRadius 2.5
+  minRadius 1.5
+}
+TruckSimple {
+  translation -101.2 10.78 0.5
+  rotation 0 0 1 3.14159
+  name "Trailertruck"
+  controller "radar_processing"
+  sensorsSlotFront [
+    Radar {
+      translation -1.20161 1.30949 -0.31
+      rotation 1.11029e-08 -2.00213e-07 1 2.87979
+      radarCrossSection 2
+      minRange 0.5
+      maxRange 15
+      horizontalFieldOfView 0.41
+      verticalFieldOfView 0.16
+    }
+  ]
+  sensorsSlotCenter [
+    Radar {
+      translation -1.7 1.82002 0
+      rotation 0 0 -1 -1.5708053071795867
+      name "radar2"
+      radarCrossSection 2
+      recognitionColors [
+        0 0 0
+      ]
+      maxRange 20
+      horizontalFieldOfView 3.14
+    }
+  ]
+}
+DEF SUMO_VEHICLE0 Solid {
+  translation -303.2782283544991 7.03 0.36
+  rotation 0 0 -1 3.141592653589793
+  children [
+    TeslaModel3Simple {
+      translation -2.85 0 0
+      color 0.43 0.11 0.1
+      recognitionColors [
+        0.43 0.11 0.1
+      ]
+    }
+  ]
+  name "369"
+  linearVelocity -11.14177168210972 0 0
+}
+DEF SUMO_VEHICLE1 Solid {
+  translation -8.992076117698517 7.03 0.358
+  rotation 0 0 -1 3.141592653589793
+  children [
+    RangeRoverSportSVRSimple {
+      translation -2.85 0 0
+      color 0.1 0.15 0.18
+      recognitionColors [
+        0.1 0.15 0.18
+      ]
+    }
+  ]
+  name "403"
+  linearVelocity -5.053609376063832 0 0
+}
+DEF SUMO_VEHICLE2 Solid {
+  translation -235.83342856961485 -7.03 0.56
+  children [
+    BusSimple {
+      translation -4.6 0 0
+      color 0.18 0.28 0.64
+      recognitionColors [
+        0.18 0.28 0.64
+      ]
+    }
+  ]
+  name "192"
+  linearVelocity 13.812680130449735 0 0
+}
+DEF SUMO_VEHICLE3 Solid {
+  translation -257.33955340724765 7.03 0.317
+  rotation 0 0 -1 3.141592653589793
+  children [
+    ToyotaPriusSimple {
+      translation -2.85 0 0
+      color 0.18 0.5 0.72
+      recognitionColors [
+        0.18 0.5 0.72
+      ]
+    }
+  ]
+  name "377"
+  linearVelocity -12.800123367997003 0 0
+}
+DEF SUMO_VEHICLE4 Solid {
+  translation -226.38375791871397 7.03 0.358
+  rotation 0 0 -1 3.141592653589793
+  children [
+    RangeRoverSportSVRSimple {
+      translation -2.85 0 0
+      color 0.1 0.15 0.18
+      recognitionColors [
+        0.1 0.15 0.18
+      ]
+    }
+  ]
+  name "383"
+  linearVelocity -14.899723429616643 0 0
+}
+DEF SUMO_VEHICLE5 Solid {
+  translation -117.13885960450261 7.03 0.4
+  rotation 0 0 -1 3.141592653589793
+  children [
+    MercedesBenzSprinterSimple {
+      translation -2.85 0 0
+      color 0.43 0.11 0.1
+      recognitionColors [
+        0.43 0.11 0.1
+      ]
+    }
+  ]
+  name "389"
+  linearVelocity -11.322655531148484 0 0
+}
+DEF SUMO_VEHICLE6 Solid {
+  translation -76.46101234861362 3.18 0.4
+  rotation 0 0 -1 3.141592653589793
+  children [
+    MercedesBenzSprinterSimple {
+      translation -2.85 0 0
+      color 0.1 0.15 0.18
+      recognitionColors [
+        0.1 0.15 0.18
+      ]
+    }
+  ]
+  name "395"
+  linearVelocity -13.909715870704531 0 0
+}
+DEF SUMO_VEHICLE7 Solid {
+  translation -138.39723716467756 3.18 0.358
+  rotation 0 0 -1 3.141592653589793
+  children [
+    RangeRoverSportSVRSimple {
+      translation -2.85 0 0
+      color 0.1 0.15 0.18
+      recognitionColors [
+        0.1 0.15 0.18
+      ]
+    }
+  ]
+  name "391"
+  linearVelocity -17.061201986875858 0 0
+}
+DEF SUMO_VEHICLE8 Solid {
+  translation -143.41096967793612 7.03 0.5
+  rotation 0 0 -1 3.141592653589793
+  children [
+    TruckSimple {
+      translation -5.2 0 0
+      color 0.14 0.29 0.16
+      recognitionColors [
+        0.14 0.29 0.16
+      ]
+      trailer TruckTankSimple {
+      }
+    }
+  ]
+  name "375"
+  linearVelocity -11.269006844813703 0 0
+}
+DEF SUMO_VEHICLE9 Solid {
+  translation -34.76225524140844 7.03 0.358
+  rotation 0 0 -1 3.141592653589793
+  children [
+    RangeRoverSportSVRSimple {
+      translation -2.85 0 0
+      color 0.62 0.62 0.62
+      recognitionColors [
+        0.62 0.62 0.62
+      ]
+    }
+  ]
+  name "399"
+  linearVelocity -11.35070248152715 0 0
+}
+DEF SUMO_VEHICLE10 Solid {
+  translation -17.584870472764834 10.870000000000001 0.374
+  rotation 0 0 -1 3.141592653589793
+  children [
+    BmwX5Simple {
+      translation -2.85 0 0
+      color 0.85 0.85 0.05
+      recognitionColors [
+        0.85 0.85 0.05
+      ]
+    }
+  ]
+  name "401"
+  linearVelocity -7.597267224073221 0 0
+}
+DEF SUMO_VEHICLE11 Solid {
+  translation -313.5558816327775 3.18 0.285
+  rotation 0 0 -1 3.141592653589793
+  children [
+    CitroenCZeroSimple {
+      translation -2.85 0 0
+      color 0.14 0.29 0.16
+      recognitionColors [
+        0.14 0.29 0.16
+      ]
+    }
+  ]
+  name "373"
+  linearVelocity -13.561768191311785 0 0
+}
+DEF SUMO_VEHICLE12 Solid {
+  translation 10000 120 0.5
+  children [
+    ToyotaPriusSimple {
+      translation -2.85 0 0
+      color 0.14 0.29 0.16
+      recognitionColors [
+        0.14 0.29 0.16
+      ]
+    }
+  ]
+  name "SUMO vehicle 12"
+}
+DEF SUMO_VEHICLE13 Solid {
+  translation -93.68874730807653 -10.870000000000001 0.358
+  children [
+    RangeRoverSportSVRSimple {
+      translation -2.85 0 0
+      color 0.72 0.52 0.18
+      recognitionColors [
+        0.72 0.52 0.18
+      ]
+    }
+  ]
+  name "183"
+  linearVelocity 11.809459361525114 0 0
+}
+DEF SUMO_VEHICLE14 Solid {
+  translation -237.84217768833878 10.870000000000001 0.358
+  rotation 0 0 -1 3.141592653589793
+  children [
+    LincolnMKZSimple {
+      translation -2.85 0 0
+      color 0.18 0.5 0.72
+      recognitionColors [
+        0.18 0.5 0.72
+      ]
+    }
+  ]
+  name "379"
+  linearVelocity -12.75608195685436 0 0
+}
+DEF SUMO_VEHICLE15 Solid {
+  translation -108.87656801807509 -7.03 0.285
+  children [
+    CitroenCZeroSimple {
+      translation -2.85 0 0
+      color 0.1 0.15 0.18
+      recognitionColors [
+        0.1 0.15 0.18
+      ]
+    }
+  ]
+  name "186"
+  linearVelocity 13.167352510381534 0 0
+}
+DEF SUMO_VEHICLE16 Solid {
+  translation -168.79021914169357 -10.870000000000001 0.317
+  children [
+    ToyotaPriusSimple {
+      translation -2.85 0 0
+      color 0.18 0.5 0.72
+      recognitionColors [
+        0.18 0.5 0.72
+      ]
+    }
+  ]
+  name "191"
+  linearVelocity 14.281575887234794 0 0
+}
+DEF SUMO_VEHICLE17 Solid {
+  translation -211.04252293452907 -10.870000000000001 0.23
+  children [
+    ScooterSimple {
+      translation -1.7 0 0
+      primaryColor 0.254902 0.0156863 0.105882
+      secondaryColor 0.309804 0.2 0.235294
+      recognitionColors [
+        0.254902 0.0156863 0.105882
+        0.309804 0.2 0.235294
+      ]
+      driver ScooterDriver {
+        shirtColor 0.396078 0.396078 0.686275
+        pantsColor 0.278431 0.278431 0.278431
+        skinColor 0.686275 0.588235 0.517647
+        helmetColor 0.470588 0.117647 0.117647
+      }
+    }
+  ]
+  name "190"
+  linearVelocity 13.24423799527267 0 0
+}
+DEF SUMO_VEHICLE18 Solid {
+  translation -102.20756246172238 10.870000000000001 0.36
+  rotation 0 0 -1 3.141592653589793
+  children [
+    TeslaModel3Simple {
+      translation -2.85 0 0
+      color 0.18 0.5 0.72
+      recognitionColors [
+        0.18 0.5 0.72
+      ]
+    }
+  ]
+  name "393"
+  linearVelocity -14.37636937787829 0 0
+}
+DEF SUMO_VEHICLE19 Solid {
+  translation -333.2706458103082 -3.1799999999999997 0.36
+  children [
+    TeslaModel3Simple {
+      translation -2.85 0 0
+      color 0.1 0.15 0.18
+      recognitionColors [
+        0.1 0.15 0.18
+      ]
+    }
+  ]
+  name "199"
+  linearVelocity 16.09504857060074 0 0
+}
+DEF SUMO_VEHICLE20 Solid {
+  translation -55.570938756070575 10.870000000000001 0.358
+  rotation 0 0 -1 3.141592653589793
+  children [
+    RangeRoverSportSVRSimple {
+      translation -2.85 0 0
+      color 0.18 0.28 0.64
+      recognitionColors [
+        0.18 0.28 0.64
+      ]
+    }
+  ]
+  name "397"
+  linearVelocity -13.39520289587199 0 0
+}
+DEF SUMO_VEHICLE21 Solid {
+  translation 10000 210 0.5
+  children [
+    TruckSimple {
+      translation -5.2 0 0
+      color 0.14 0.29 0.16
+      recognitionColors [
+        0.14 0.29 0.16
+      ]
+      trailer NULL
+    }
+  ]
+  name "SUMO vehicle 21"
+}
+DEF SUMO_VEHICLE22 Solid {
+  translation 10000 220 0.5
+  children [
+    BmwX5Simple {
+      translation -2.85 0 0
+    }
+  ]
+  name "SUMO vehicle 22"
+}
+DEF SUMO_VEHICLE23 Solid {
+  translation -220.83736854251765 3.18 0.4
+  rotation 0 0 -1 3.141592653589793
+  children [
+    MercedesBenzSprinterSimple {
+      translation -2.85 0 0
+      color 0.72 0.52 0.18
+      recognitionColors [
+        0.72 0.52 0.18
+      ]
+    }
+  ]
+  name "381"
+  linearVelocity -13.780712219249835 0 0
+}
+DEF SUMO_VEHICLE25 Solid {
+  translation 10000 250 0.5
+  rotation 0 0 -1 3.141592653589793
+  children [
+    MercedesBenzSprinterSimple {
+      translation -2.85 0 0
+      color 0.14 0.29 0.16
+      recognitionColors [
+        0.14 0.29 0.16
+      ]
+    }
+  ]
+  name "SUMO vehicle 25"
+}
+DEF SUMO_VEHICLE27 Solid {
+  translation -294.52301585632404 10.870000000000001 0.374
+  rotation 0 0 -1 3.141592653589793
+  children [
+    BmwX5Simple {
+      translation -2.85 0 0
+    }
+  ]
+  name "371"
+  linearVelocity -11.830150716550634 0 0
+}
+DEF SUMO_VEHICLE28 Solid {
+  translation -81.97853770971739 -7.03 0.317
+  children [
+    ToyotaPriusSimple {
+      translation -2.85 0 0
+      color 0.85 0.85 0.05
+      recognitionColors [
+        0.85 0.85 0.05
+      ]
+    }
+  ]
+  name "187"
+  linearVelocity 13.780115262688923 0 0
+}
+DEF SUMO_VEHICLE29 Solid {
+  translation 10000 290 0.5
+  rotation 0 0 -1 3.141592653589793
+  children [
+    RangeRoverSportSVRSimple {
+      translation -2.85 0 0
+      color 0.72 0.52 0.18
+      recognitionColors [
+        0.72 0.52 0.18
+      ]
+    }
+  ]
+  name "SUMO vehicle 29"
+}
+DEF SUMO_VEHICLE30 Solid {
+  translation 10000 300 0.5
+  rotation 0 0 -1 0.07045291364253312
+  children [
+    RangeRoverSportSVRSimple {
+      translation -2.85 0 0
+      color 0.72 0.52 0.18
+      recognitionColors [
+        0.72 0.52 0.18
+      ]
+    }
+  ]
+  name "SUMO vehicle 30"
+}
+DEF SUMO_VEHICLE31 Solid {
+  translation -189.19807175630672 3.8816358120885552 0.4
+  rotation 0 0 1 3.068974982755815
+  children [
+    MercedesBenzSprinterSimple {
+      translation -2.85 0 0
+      color 0.43 0.11 0.1
+      recognitionColors [
+        0.43 0.11 0.1
+      ]
+    }
+  ]
+  name "385"
+  linearVelocity -14.818470182735837 1.1484697156054824 0
+  angularVelocity 0 0 -0.059128651043312
+}
+DEF SUMO_VEHICLE32 Solid {
+  translation 10000 320 0.5
+  children [
+    TruckSimple {
+      translation -5.2 0 0
+      color 0.18 0.5 0.72
+      recognitionColors [
+        0.18 0.5 0.72
+      ]
+      trailer TruckTankSimple {
+      }
+    }
+  ]
+  name "SUMO vehicle 32"
+}
+DEF SUMO_VEHICLE33 Solid {
+  translation -101.95855708144842 -3.1799999999999997 0.36
+  children [
+    TeslaModel3Simple {
+      translation -2.85 0 0
+      color 0.18 0.28 0.64
+      recognitionColors [
+        0.18 0.28 0.64
+      ]
+    }
+  ]
+  name "189"
+  linearVelocity 14.31150651016651 0 0
+}
+DEF SUMO_VEHICLE34 Solid {
+  translation -55.16447253203407 -3.1799999999999997 0.358
+  children [
+    RangeRoverSportSVRSimple {
+      translation -2.85 0 0
+      color 0.18 0.28 0.64
+      recognitionColors [
+        0.18 0.28 0.64
+      ]
+    }
+  ]
+  name "194"
+  linearVelocity 17.02559990566442 0 0
+}
+DEF SUMO_VEHICLE35 Solid {
+  translation -159.50473972492262 10.870000000000001 0.374
+  rotation 0 0 -1 3.141592653589793
+  children [
+    BmwX5Simple {
+      translation -2.85 0 0
+      color 0.18 0.28 0.64
+      recognitionColors [
+        0.18 0.28 0.64
+      ]
+    }
+  ]
+  name "387"
+  linearVelocity -13.437512719556253 0 0
+}
+DEF SUMO_VEHICLE36 Solid {
+  translation 10000 360 0.5
+  children [
+    TeslaModel3Simple {
+      translation -2.85 0 0
+      color 0.72 0.52 0.18
+      recognitionColors [
+        0.72 0.52 0.18
+      ]
+    }
+  ]
+  name "SUMO vehicle 36"
+}
+DEF SUMO_VEHICLE37 Solid {
+  translation -225.53765140891528 7.03 0.317
+  rotation 0 0 -1 3.141592653589793
+  children [
+    ToyotaPriusSimple {
+      translation -2.85 0 0
+      color 0.72 0.52 0.18
+      recognitionColors [
+        0.72 0.52 0.18
+      ]
+    }
+  ]
+  name "SUMO vehicle 37"
+}
+DEF SUMO_VEHICLE38 Solid {
+  translation -280.93640997641637 3.18 0.285
+  rotation 0 0 -1 3.141592653589793
+  children [
+    CitroenCZeroSimple {
+      translation -2.85 0 0
+      color 0.1 0.15 0.18
+      recognitionColors [
+        0.1 0.15 0.18
+      ]
+    }
+  ]
+  name "SUMO vehicle 38"
+}
+DEF SUMO_VEHICLE39 Solid {
+  translation -131.16789469926186 -10.870000000000001 0.374
+  children [
+    BmwX5Simple {
+      translation -2.85 0 0
+      color 0.14 0.29 0.16
+      recognitionColors [
+        0.14 0.29 0.16
+      ]
+    }
+  ]
+  name "SUMO vehicle 39"
+}
+DEF SUMO_VEHICLE40 Solid {
+  translation 10000 400 0.5
+  children [
+    TeslaModel3Simple {
+      translation -2.85 0 0
+      color 0.18 0.5 0.72
+      recognitionColors [
+        0.18 0.5 0.72
+      ]
+    }
+  ]
+  name "SUMO vehicle 40"
+}
+DEF SUMO_VEHICLE41 Solid {
+  translation -319.27688342921897 -3.1799999999999997 0.23
+  children [
+    ScooterSimple {
+      translation -1.7 0 0
+      primaryColor 0.564706 0.435294 0.054902
+      secondaryColor 0.458824 0.286275 0.0705882
+      recognitionColors [
+        0.564706 0.435294 0.054902
+        0.458824 0.286275 0.0705882
+      ]
+      driver ScooterDriver {
+        shirtColor 0.596078 0.678431 0.564706
+        pantsColor 0.113725 0.137255 0.141176
+        skinColor 0.27451 0.207843 0.168627
+        helmetColor 0.121569 0.223529 0.0117647
+      }
+    }
+  ]
+  name "SUMO vehicle 41"
+}
+DEF SUMO_VEHICLE43 Solid {
+  translation 10000 430 0.5
+  rotation 0 0 -1 3.141592653589793
+  children [
+    TruckSimple {
+      translation -5.2 0 0
+      color 0.18 0.28 0.64
+      recognitionColors [
+        0.18 0.28 0.64
+      ]
+      trailer TruckTankSimple {
+        color 0.07 0.27 0.12
+      }
+    }
+  ]
+  name "SUMO vehicle 43"
+}
+DEF SUMO_VEHICLE44 Solid {
+  translation 10000 440 0.5
+  rotation 0 0 -1 3.141592653589793
+  children [
+    CitroenCZeroSimple {
+      translation -2.85 0 0
+    }
+  ]
+  name "SUMO vehicle 44"
+}
+DEF SUMO_VEHICLE45 Solid {
+  translation 10000 450 0.5
+  children [
+    BmwX5Simple {
+      translation -2.85 0 0
+      color 0.62 0.62 0.62
+      recognitionColors [
+        0.62 0.62 0.62
+      ]
+    }
+  ]
+  name "SUMO vehicle 45"
+}
+DEF SUMO_VEHICLE46 Solid {
+  translation 10000 460 0.5
+  rotation 0 0 -1 3.141592653589793
+  children [
+    LincolnMKZSimple {
+      translation -2.85 0 0
+      color 0.1 0.15 0.18
+      recognitionColors [
+        0.1 0.15 0.18
+      ]
+    }
+  ]
+  name "SUMO vehicle 46"
+}
+DEF SUMO_VEHICLE47 Solid {
+  translation 10000 470 0.5
+  children [
+    BmwX5Simple {
+      translation -2.85 0 0
+      color 0.18 0.5 0.72
+      recognitionColors [
+        0.18 0.5 0.72
+      ]
+    }
+  ]
+  name "SUMO vehicle 47"
+}
+DEF SUMO_VEHICLE48 Solid {
+  translation 10000 480 0.5
+  rotation 0 0 -1 3.141592653589793
+  children [
+    RangeRoverSportSVRSimple {
+      translation -2.85 0 0
+      color 0.18 0.28 0.64
+      recognitionColors [
+        0.18 0.28 0.64
+      ]
+    }
+  ]
+  name "SUMO vehicle 48"
+}
+DEF SUMO_VEHICLE49 Solid {
+  translation 10000 490 0.5
+  children [
+    TruckSimple {
+      translation -5.2 0 0
+      color 0.1 0.15 0.18
+      recognitionColors [
+        0.1 0.15 0.18
+      ]
+      trailer TruckTankSimple {
+        color 0.07 0.27 0.12
+      }
+    }
+  ]
+  name "SUMO vehicle 49"
+}
+DEF SUMO_VEHICLE51 Solid {
+  translation -138.2888982329306 -3.18 0.56
+  children [
+    BusSimple {
+      translation -4.6 0 0
+      color 0.18 0.5 0.72
+      recognitionColors [
+        0.18 0.5 0.72
+      ]
+    }
+  ]
+  name "SUMO vehicle 51"
+}
+DEF SUMO_VEHICLE52 Solid {
+  translation -298.31737132575904 -10.870000000000001 0.56
+  children [
+    BusSimple {
+      translation -4.6 0 0
+      color 0.18 0.28 0.64
+      recognitionColors [
+        0.18 0.28 0.64
+      ]
+    }
+  ]
+  name "SUMO vehicle 52"
+}
+DEF SUMO_VEHICLE24 Solid {
+  translation -7.223917714662093 3.180000000000001 0.5
+  rotation 0 0 -1 3.141592653589793
+  children [
+    TruckSimple {
+      translation -5.2 0 0
+      color 0.1 0.15 0.18
+      recognitionColors [
+        0.1 0.15 0.18
+      ]
+      trailer TruckTrailerSimple {
+        appearance PBRAppearance {
+          baseColorMap ImageTexture {
+            url [
+              "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/vehicles/protos/generic/textures/truck_trailer_red.jpg"
+            ]
+          }
+          roughness 0.4
+          metalness 0
+        }
+      }
+    }
+  ]
+  name "405"
+  linearVelocity -0.3595352716956768 0 0
+}
+DEF SUMO_VEHICLE25 Solid {
+  translation 10000 0 0.5
+  children [
+    TeslaModel3Simple {
+      translation -2.85 0 0
+      color 0.1 0.15 0.18
+      recognitionColors [
+        0.1 0.15 0.18
+      ]
+    }
+  ]
+  name "solid(3)"
+}
+DEF SUMO_VEHICLE26 Solid {
+  translation 10000 260 0.5
+  rotation 0 0 -1 3.141592653589793
+  children [
+    TeslaModel3Simple {
+      translation -2.85 0 0
+      color 0.43 0.11 0.1
+      recognitionColors [
+        0.43 0.11 0.1
+      ]
+    }
+  ]
+  name "SUMO vehicle 26"
+}
+DEF SUMO_VEHICLE27 Solid {
+  translation 10000 0 0.5
+  children [
+    BmwX5Simple {
+      translation -2.85 0 0
+      color 0.62 0.62 0.62
+      recognitionColors [
+        0.62 0.62 0.62
+      ]
+    }
+  ]
+  name "solid(4)"
+}
+DEF SUMO_VEHICLE28 Solid {
+  translation 10000 0 0.5
+  children [
+    ToyotaPriusSimple {
+      translation -2.85 0 0
+      color 0.62 0.62 0.62
+      recognitionColors [
+        0.62 0.62 0.62
+      ]
+    }
+  ]
+  name "solid(5)"
+}
+DEF SUMO_VEHICLE29 Solid {
+  translation 10000 0 0.5
+  children [
+    LincolnMKZSimple {
+      translation -2.85 0 0
+      color 0.85 0.85 0.05
+      recognitionColors [
+        0.85 0.85 0.05
+      ]
+    }
+  ]
+  name "solid(6)"
+}
+DEF SUMO_VEHICLE30 Solid {
+  translation 10000 0 0.5
+  children [
+    TruckSimple {
+      translation -5.2 0 0
+      color 0.1 0.15 0.18
+      recognitionColors [
+        0.1 0.15 0.18
+      ]
+      trailer TruckTankSimple {
+      }
+    }
+  ]
+  name "solid(7)"
+}
+DEF SUMO_VEHICLE31 Solid {
+  translation 10000 0 0.5
+  children [
+    TruckSimple {
+      translation -5.2 0 0
+      color 0.85 0.85 0.05
+      recognitionColors [
+        0.85 0.85 0.05
+      ]
+      trailer TruckTrailerSimple {
+        appearance PBRAppearance {
+          baseColorMap ImageTexture {
+            url [
+              "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/vehicles/protos/generic/textures/truck_trailer_webots.jpg"
+            ]
+          }
+          roughness 0.4
+          metalness 0
+        }
+      }
+    }
+  ]
+  name "solid(8)"
+}
+DEF SUMO_VEHICLE32 Solid {
+  translation 10000 0 0.5
+  children [
+    TruckSimple {
+      translation -5.2 0 0
+      color 0.85 0.85 0.05
+      recognitionColors [
+        0.85 0.85 0.05
+      ]
+      trailer TruckTrailerSimple {
+        appearance PBRAppearance {
+          baseColorMap ImageTexture {
+            url [
+              "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/vehicles/protos/generic/textures/truck_trailer_red.jpg"
+            ]
+          }
+          roughness 0.4
+          metalness 0
+        }
+      }
+    }
+  ]
+  name "solid(9)"
+}
+DEF SUMO_VEHICLE33 Solid {
+  translation 10000 0 0.5
+  children [
+    MercedesBenzSprinterSimple {
+      translation -2.85 0 0
+      color 0.18 0.28 0.64
+      recognitionColors [
+        0.18 0.28 0.64
+      ]
+    }
+  ]
+  name "solid(10)"
+}
+DEF SUMO_VEHICLE34 Solid {
+  translation 10000 0 0.5
+  children [
+    TeslaModel3Simple {
+      translation -2.85 0 0
+      color 0.18 0.5 0.72
+      recognitionColors [
+        0.18 0.5 0.72
+      ]
+    }
+  ]
+  name "solid(11)"
+}
+DEF SUMO_VEHICLE35 Solid {
+  translation 10000 0 0.5
+  children [
+    TeslaModel3Simple {
+      translation -2.85 0 0
+      color 0.72 0.52 0.18
+      recognitionColors [
+        0.72 0.52 0.18
+      ]
+    }
+  ]
+  name "solid(12)"
+}
